@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SongsLearning {
-    private ArrayList<Song> listOfSongsLearning;
+    private ArrayList<Song> songsLearning;
 
     /** 
      * EFFECTS: SongsLearning is initially set to empty.
      */
     public SongsLearning(){
-        listOfSongsLearning = new ArrayList<>();
+        songsLearning = new ArrayList<>();
 
         }
 
@@ -23,10 +23,10 @@ public class SongsLearning {
     // EFFECTS: Adds song to SongsLearning
     public void removeSongToSongsLearning(Song song){
         //STUB
+    }
 
     public ArrayList<Song> getSongs(){
         //STUB
-    }
     }
     }
 
