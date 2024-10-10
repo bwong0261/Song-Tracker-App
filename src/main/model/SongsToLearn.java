@@ -16,16 +16,16 @@ public class SongsToLearn {
 
     //EFFECTS: Adds song to SongsToLearn
     public void addSongToSongsToLearn(Song song){
-        //STUB
+        this.songsLearning.add(song);
     }
 
     //EFFECTS: Removes song from SongsToLearn
     public void removeSongToSongsToLearn(Song song){
-        //STUB
+        this.songsLearning.remove(song);
     }
 
     public ArrayList<Song> getSongs(){
-        //STUB
+        return this.songsLearning;
     }
 
     }
