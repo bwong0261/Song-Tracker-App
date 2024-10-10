@@ -24,6 +24,10 @@ public class SongsLearned {
         this.songsLearned.remove(song);
     }
 
+    public Song getSong(int index){
+        return songsLearned.get(index);
+    }
+
     public ArrayList<Song> getSongs(){
         return this.songsLearned;
     }
