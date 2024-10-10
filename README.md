@@ -18,8 +18,8 @@ This project is of interest to me because I personally play guitar and am contin
 
 - As a user, I want to be able to add songs to the ones which I want to learn.
 
-- As a user, I want to be able to view all of the songs that I have already learnt.
+- As a user, I want to be able to view all of the songs that I want to learn.
 
 - As a user, I want to be able to rank songs in order of which one I want to learn the most.
 
-- As a user, I want to keep track of the amount of days that I have been learning a particular song
+- As a user, I want to favourite songs that I have already learnt.
