@@ -8,7 +8,7 @@ public class Song {
     private Boolean learning; // currently learning song?
     private Boolean learned; // is song learned or not?
     private Boolean favourite; // is song favourited?
-    
+
     /*
      * REQUIRES: title has non-zero length, artist has non-zero length,
      * instrument has non-zero length,
@@ -16,7 +16,7 @@ public class Song {
      * instrument of song set to instrument, learning initially set to false,
      * learned initially set to false, favourite initially set to false.
      */
-    public Song(String title, String artist, String instrument){
+    public Song(String title, String artist, String instrument) {
         this.title = title;
         this.artist = artist;
         this.instrument = instrument;
@@ -50,18 +50,16 @@ public class Song {
         return favourite;
     }
 
-    public Boolean makeLearning(){
+    public Boolean makeLearning() {
         return learning = true;
     }
 
-    public Boolean makeLearned(){
+    public Boolean makeLearned() {
         return learned = true;
     }
 
-    public Boolean makeFavourite(){
+    public Boolean makeFavourite() {
         return favourite = true;
     }
-
-
 
 }

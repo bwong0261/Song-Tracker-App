@@ -5,34 +5,31 @@ import java.util.ArrayList;
 public class SongsLearned {
     private ArrayList<Song> songsLearned;
 
-    /** 
+    /**
      * EFFECTS: SongsLearned is initially set to empty.
      */
-    public SongsLearned(){
+    public SongsLearned() {
         songsLearned = new ArrayList<>();
 
-        }
+    }
 
     // EFFECTS: Adds song to songsLearned
-    public void addSongToSongsLearned(Song song){
+    public void addSongToSongsLearned(Song song) {
         this.songsLearned.add(song);
     }
 
     // REQUIRES: songsLearned must be non-empty
     // EFFECTS: Removes song to songsLearned
-    public void removeSongToSongsLearned(Song song){
+    public void removeSongToSongsLearned(Song song) {
         this.songsLearned.remove(song);
     }
 
-    public Song getSong(int index){
+    public Song getSong(int index) {
         return songsLearned.get(index);
     }
 
-    public ArrayList<Song> getSongs(){
+    public ArrayList<Song> getSongs() {
         return this.songsLearned;
     }
 
-
-    }
-
-
+}
