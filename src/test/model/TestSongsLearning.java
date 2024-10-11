@@ -42,6 +42,14 @@ public class TestSongsLearning {
     }
 
     @Test
+    void testGetSong(){
+        testSongsLearning.addSongToSongsLearning(s1);
+        testSongsLearning.addSongToSongsLearning(s2);
+        assertEquals(s1, testSongsLearning.getSong(0));
+        assertEquals(s2, testSongsLearning.getSong(1));
+    }
+
+    @Test
     void RemoveSong(){
         testSongsLearning.addSongToSongsLearning(s1);
         testSongsLearning.addSongToSongsLearning(s2);
