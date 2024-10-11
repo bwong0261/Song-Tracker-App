@@ -39,12 +39,11 @@ public class SongTrackerApp {
             } else {
                 processCommand(command);
             }
-            
         }
-        
+        System.out.println("\nThanks for using the application!");
     }
 
-    // REQUIRES:
+    // MODIFIES: this
     // EFFECTS: Processes command for each specific input string
     // and then passes it on to corresponding method
     private void processCommand(String command) {
@@ -89,7 +88,7 @@ public class SongTrackerApp {
     // REQUIRES: songsToLearn is non-empty
     // EFFECTS: Prints all of the songs in songsToLearn with its
     // title, artist and instrument
-    private void printSongsSongsToLearn(){
+    private void printSongsSongsToLearn() {
         for (Song song : songsToLearn.getSongs()) {
             System.out.println("\n\nTitle:" + song.getTitle() +
                     "\nArtist:" + song.getArtist() +
@@ -170,10 +169,10 @@ public class SongTrackerApp {
         }
     }
 
-        // REQUIRES: songsToLearn is non-empty
+    // REQUIRES: songsToLearn is non-empty
     // EFFECTS: Prints all of the songs in songsToLearn with its
     // title, artist and instrument
-    private void printSongsSongsLearning(){
+    private void printSongsSongsLearning() {
         for (Song song : songsLearning.getSongs()) {
             System.out.println("\n\nTitle:" + song.getTitle() +
                     "\nArtist:" + song.getArtist() +
@@ -215,8 +214,7 @@ public class SongTrackerApp {
     }
 
     // EFFECTS: Prints all of the songs in SongsLearned, allows user to favourite
-    // songs
-    // or quit depending on user input
+    // song or quit depending on user input
     private void viewSongsLearned() {
         boolean inSongsLearned = true;
         while (inSongsLearned) {
@@ -224,14 +222,7 @@ public class SongTrackerApp {
             if ((songsLearned.getSongs()).isEmpty()) {
                 System.out.println("\nYou have no songs finished learning");
             } else {
-                for (Song song : songsLearned.getSongs()) {
-                    System.out.println("\n\nTitle:" + song.getTitle() +
-                            "\nArtist:" + song.getArtist() +
-                            "\nInstrument:" + song.getInstrument());
-                    if (song.isFavourite()) {
-                        System.out.println("FAVOURITED");
-                    }
-                }
+                printSongsSongsLearned();
             }
             String command = input.next();
             command = command.toLowerCase();
@@ -241,6 +232,17 @@ public class SongTrackerApp {
                 inSongsLearned = false;
             } else {
                 System.out.println("Not valid choice");
+            }
+        }
+    }
+
+    private void printSongsSongsLearned() {
+        for (Song song : songsLearned.getSongs()) {
+            System.out.println("\n\nTitle:" + song.getTitle() +
+                    "\nArtist:" + song.getArtist() +
+                    "\nInstrument:" + song.getInstrument());
+            if (song.isFavourite()) {
+                System.out.println("FAVOURITED");
             }
         }
     }
