@@ -1,6 +1,5 @@
 package ui;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import model.Song;
@@ -102,7 +101,7 @@ public class SongTrackerApp {
         System.out.println("\t a -> add a song");
         System.out.println("\t b -> remove a song");
         System.out.println("\t c -> choose song to laern");
-        System.out.println("\t q -> quit");
+        System.out.println("\t q -> return to main menu");
     }
 
     // EFFECTS: Takes user input for title, artist and instrument,
@@ -185,7 +184,7 @@ public class SongTrackerApp {
         System.out.println("\n--- Songs Currently Learning ---");
         System.out.println("\t a -> remove a song");
         System.out.println("\t b -> mark song as finished learning");
-        System.out.println("\t q -> quit");
+        System.out.println("\t q -> return to main menu");
     }
 
     // REQUIRES: songsLearning must be non-empty
@@ -251,7 +250,7 @@ public class SongTrackerApp {
     private void viewSongsLearnedOptions() {
         System.out.println("\n--- Songs Finished Learning ---");
         System.out.println("\t a -> mark song as favourite");
-        System.out.println("\t q -> quit");
+        System.out.println("\t q -> return to main menu");
     }
 
     // EFFECTS: Takes user input to choose the song that they want to
@@ -270,7 +269,7 @@ public class SongTrackerApp {
         System.out.println("\ta -> view songs to learn");
         System.out.println("\tb -> view songs learning");
         System.out.println("\tc -> view songs learned");
-        System.out.println("\tq -> quit");
+        System.out.println("\tq -> quit application");
     }
 
     // EFFECTS: Initialized all of our lists to start and be empty
