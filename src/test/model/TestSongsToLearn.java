@@ -16,8 +16,8 @@ public class TestSongsToLearn {
     @BeforeEach
     void runBefore() {
         testSongsToLearn = new SongsToLearn();
-        Song s1 = new Song("Test", "Me", "Guitar");
-        Song s2 = new Song("Okay", "You", "Piano");
+        s1 = new Song("Test", "Me", "Guitar");
+        s2 = new Song("Okay", "You", "Piano");
 
     }
 
