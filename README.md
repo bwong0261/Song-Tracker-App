@@ -23,3 +23,7 @@ This project is of interest to me because I personally play guitar and am contin
 - As a user, I want to be able to make songs that I am learning to ones that I have learnt, after I am finished learning them.
 
 - As a user, I want to favourite songs that I have already learnt.
+
+- As a user, I want to be able to save all of my lists of songsToLearn, songsLearning and songsLearned.
+
+- As a user, when I start my application I want to have the option to load my lists from a previous save file and resume them.
