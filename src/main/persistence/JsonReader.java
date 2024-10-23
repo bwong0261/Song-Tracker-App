@@ -1,6 +1,8 @@
 package persistence;
 
 import model.Song;
+import model.SongsLearned;
+import model.SongsLearning;
 import model.SongsToLearn;
 
 import java.io.IOException;
@@ -22,10 +24,26 @@ public class JsonReader {
 
     // EFFECTS: reads SongsToLearn from file and returns it;
     // throws IOException if an error occurs reading data from file
-    public SongsToLearn read() throws IOException {
+    public SongsToLearn readSongsToLearn() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
-        return parseWorkRoom(jsonObject);
+        return parseSongsToLearn(jsonObject);
+    }
+
+        // EFFECTS: reads SongsLearning from file and returns it;
+    // throws IOException if an error occurs reading data from file
+    public SongsLearning readSongsLearning() throws IOException {
+        String jsonData = readFile(source);
+        JSONObject jsonObject = new JSONObject(jsonData);
+        return parseSongsLearning(jsonObject);
+    }
+
+        // EFFECTS: reads SongsLearned from file and returns it;
+    // throws IOException if an error occurs reading data from file
+    public SongsLearned readSongsLearned() throws IOException {
+        String jsonData = readFile(source);
+        JSONObject jsonObject = new JSONObject(jsonData);
+        return parseSongsLearned(jsonObject);
     }
 
     // EFFECTS: reads source file as string and returns it
@@ -40,7 +58,7 @@ public class JsonReader {
     }
 
     // EFFECTS: parses SongsToLearn from JSON object and returns it
-    private SongsToLearn parseWorkRoom(JSONObject jsonObject) {
+    private SongsToLearn parseSongsToLearn(JSONObject jsonObject) {
         SongsToLearn songsToLearn = new SongsToLearn();
         addSongsSongsToLearn(songsToLearn, jsonObject);
         return songsToLearn;
@@ -51,8 +69,8 @@ public class JsonReader {
     private void addSongsSongsToLearn(SongsToLearn songsToLearn, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("songs");
         for (Object json : jsonArray) {
-            JSONObject nextThingy = (JSONObject) json;
-            addSongSongsToLearn(songsToLearn, nextThingy);
+            JSONObject nextSong = (JSONObject) json;
+            addSongSongsToLearn(songsToLearn, nextSong);
         }
     }
 
@@ -65,4 +83,60 @@ public class JsonReader {
         Song song = new Song(title, artist, instrument);
         songsToLearn.addSongToSongsToLearn(song);
     }
+
+    // EFFECTS: parses SongsToLearn from JSON object and returns it
+    private SongsLearning parseSongsLearning(JSONObject jsonObject) {
+        SongsLearning songsLearning = new SongsLearning();
+        addSongsSongsLearning(songsLearning, jsonObject);
+        return songsLearning;
+    }
+
+        // MODIFIES: SongsToLearn
+    // EFFECTS: parses songs from JSON object and adds them to SongsToLearn
+    private void addSongsSongsLearning(SongsLearning songsLearning, JSONObject jsonObject) {
+        JSONArray jsonArray = jsonObject.getJSONArray("songs");
+        for (Object json : jsonArray) {
+            JSONObject nextSong = (JSONObject) json;
+            addSongSongsLearning(songsLearning, nextSong);
+        }
+    }
+
+    // MODIFIES: SongsToLearn
+    // EFFECTS: parses song from JSON object and adds it to SongsToLearn
+    private void addSongSongsLearning(SongsLearning songsLearning, JSONObject jsonObject) {
+        String title = jsonObject.getString("title");
+        String artist = jsonObject.getString("artist");
+        String instrument = jsonObject.getString("instrument");
+        Song song = new Song(title, artist, instrument);
+        songsLearning.addSongToSongsLearning(song);
+    }
+
+    // EFFECTS: parses SongsToLearn from JSON object and returns it
+    private SongsLearned parseSongsLearned(JSONObject jsonObject) {
+        SongsLearned songsLearned = new SongsLearned();
+        addSongsSongsLearned(songsLearned, jsonObject);
+        return songsLearned;
+    }
+
+        // MODIFIES: SongsToLearn
+    // EFFECTS: parses songs from JSON object and adds them to SongsToLearn
+    private void addSongsSongsLearned(SongsLearned songsLearned, JSONObject jsonObject) {
+        JSONArray jsonArray = jsonObject.getJSONArray("songs");
+        for (Object json : jsonArray) {
+            JSONObject nextSong = (JSONObject) json;
+            addSongSongsLearned(songsLearned, nextSong);
+        }
+    }
+
+    // MODIFIES: SongsToLearn
+    // EFFECTS: parses song from JSON object and adds it to SongsToLearn
+    private void addSongSongsLearned(SongsLearned songsLearned, JSONObject jsonObject) {
+        String title = jsonObject.getString("title");
+        String artist = jsonObject.getString("artist");
+        String instrument = jsonObject.getString("instrument");
+        Song song = new Song(title, artist, instrument);
+        songsLearned.addSongToSongsLearned(song);
+    }
+
+    
 }
