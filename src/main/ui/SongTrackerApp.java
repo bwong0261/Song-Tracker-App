@@ -17,7 +17,7 @@ import persistence.JsonWriter;
 // song from each list. Also declares the jsonWriter and jsonReader fields
 // to allow for the saving and loading of our application states.
 public class SongTrackerApp {
-    private static final String JSON_STORE = "./data/workroom.json";
+    private static final String JSON_STORE = "./data/songtracker.json";
     private SongsToLearn songsToLearn;
     private SongsLearning songsLearning;
     private SongsLearned songsLearned;
