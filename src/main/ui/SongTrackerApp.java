@@ -17,6 +17,7 @@ import persistence.JsonWriter;
 // song from each list. Also declares the jsonWriter and jsonReader fields
 // to allow for the saving and loading of our application states.
 public class SongTrackerApp {
+    private static final String JSON_STORE = "./data/workroom.json";
     private SongsToLearn songsToLearn;
     private SongsLearning songsLearning;
     private SongsLearned songsLearned;
@@ -294,12 +295,12 @@ public class SongTrackerApp {
     }
 
     // EFFECTS: saves the workroom to file
-    private void saveWorkRoom() {
+    private void saveSongTracker() {
         try {
             jsonWriter.open();
-            jsonWriter.write(workRoom);
+            jsonWriter.write(songsToLearn);
             jsonWriter.close();
-            System.out.println("Saved " + workRoom.getName() + " to " + JSON_STORE);
+            System.out.println("Saved " + "Song Tracker Status" + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -307,10 +308,10 @@ public class SongTrackerApp {
 
     // MODIFIES: this
     // EFFECTS: loads workroom from file
-    private void loadWorkRoom() {
+    private void loadSongTracker() {
         try {
-            workRoom = jsonReader.read();
-            System.out.println("Loaded " + workRoom.getName() + " from " + JSON_STORE);
+            songsToLearn = jsonReader.read();
+            System.out.println("Loaded " + "Song Tracker Status" + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
