@@ -64,6 +64,9 @@ public class Song {
         return favourite = true;
     }
 
+    // MODIFIES: this
+    // REQUIRES: 
+    // EFFECTS: Puts title, artist and instrument of song to JSONObject
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("title", title);
