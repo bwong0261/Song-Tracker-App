@@ -20,7 +20,7 @@ public class JsonReader {
         this.source = source;
     }
 
-    // EFFECTS: reads workroom from file and returns it;
+    // EFFECTS: reads SongsToLearn from file and returns it;
     // throws IOException if an error occurs reading data from file
     public SongsToLearn read() throws IOException {
         String jsonData = readFile(source);
@@ -39,14 +39,14 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses SongsToLearn from JSON object and returns it
     private SongsToLearn parseWorkRoom(JSONObject jsonObject) {
         SongsToLearn songsToLearn = new SongsToLearn();
         addSongsSongsToLearn(songsToLearn, jsonObject);
         return songsToLearn;
     }
 
-    // MODIFIES: wr
+    // MODIFIES: SongsToLearn
     // EFFECTS: parses songs from JSON object and adds them to SongsToLearn
     private void addSongsSongsToLearn(SongsToLearn songsToLearn, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("songs");
@@ -56,7 +56,7 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: song
+    // MODIFIES: SongsToLearn
     // EFFECTS: parses song from JSON object and adds it to SongsToLearn
     private void addSongSongsToLearn(SongsToLearn songsToLearn, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
