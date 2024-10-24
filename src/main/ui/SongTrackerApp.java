@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+import org.json.JSONObject;
+
 import model.Song;
 import model.SongsLearned;
 import model.SongsLearning;
@@ -306,9 +308,7 @@ public class SongTrackerApp {
     private void saveSongTracker() {
         try {
             jsonWriter.open(); 
-            jsonWriter.writeA(songsToLearn);
-            jsonWriter.writeB(songsLearning);
-            jsonWriter.writeC(songsLearned);
+            jsonWriter.write(songsToLearn, songsLearning, songsLearned);
             jsonWriter.close();
             System.out.println("Saved " + "Song Tracker Status" + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
@@ -320,9 +320,10 @@ public class SongTrackerApp {
     // EFFECTS: loads workroom from file
     private void loadSongTracker() {
         try {
-            songsToLearn = jsonReader.readSongsToLearn();
-            songsLearning = jsonReader.readSongsLearning();
-            songsLearned = jsonReader.readSongsLearned();
+            JSONObject jsonObject = jsonReader.read();
+            songsToLearn = jsonReader.parseSongsToLearn(jsonObject.getJSONObject("songsToLearn"));
+            songsLearning = jsonReader.parseSongsLearning(jsonObject.getJSONObject("songsLearning"));
+            songsLearned = jsonReader.parseSongsLearned(jsonObject.getJSONObject("songsLearned"));
             System.out.println("Loaded " + "Song Tracker Status" + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
