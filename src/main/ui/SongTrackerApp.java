@@ -145,7 +145,6 @@ public class SongTrackerApp {
         String index = input.next();
         int number = Integer.parseInt(index);
         Song learningSong = songsToLearn.getSong(number - 1);
-        learningSong.isLearned();
         songsToLearn.removeSongToSongsToLearn(learningSong);
         songsLearning.addSongToSongsLearning(learningSong);
     }
@@ -225,7 +224,6 @@ public class SongTrackerApp {
         String index = input.next();
         int number = Integer.parseInt(index);
         Song learningSong = songsLearning.getSong(number - 1);
-        learningSong.isLearned();
         songsLearning.removeSongToSongsLearning(learningSong);
         songsLearned.addSongToSongsLearned(learningSong);
     }
