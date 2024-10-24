@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 
 public class TestSong {
     private Song testSong;
-    
+
     @BeforeEach
     void runBefore() {
         testSong = new Song("Test", "Me", "Guitar");
     }
 
     @Test
-    void testConstructor(){
+    void testConstructor() {
         assertEquals("Test", testSong.getTitle());
         assertEquals("Me", testSong.getArtist());
         assertEquals("Guitar", testSong.getInstrument());
