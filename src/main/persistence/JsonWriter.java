@@ -5,7 +5,6 @@ import model.SongsLearning;
 import model.SongsToLearn;
 import org.json.JSONObject;
 
-
 import java.io.*;
 
 // Represents a writer that writes JSON representation of workroom to file
@@ -20,7 +19,8 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: opens writer; throws FileNotFoundException if destination file cannot
+    // EFFECTS: opens writer; throws FileNotFoundException if destination file
+    // cannot
     // be opened for writing
     public void open() throws FileNotFoundException {
         writer = new PrintWriter(new File(destination));
@@ -28,12 +28,12 @@ public class JsonWriter {
 
     public void write(SongsToLearn songsToLearn, SongsLearning songsLearning, SongsLearned songsLearned) {
         JSONObject json = new JSONObject();
-        
+
         // Add each list to the main JSON object
-        json.put("songsToLearn", songsToLearn.toJson()); 
-        json.put("songsLearning", songsLearning.toJson()); 
+        json.put("songsToLearn", songsToLearn.toJson());
+        json.put("songsLearning", songsLearning.toJson());
         json.put("songsLearned", songsLearned.toJson());
-        
+
         saveToFile(json.toString(TAB));
     }
 

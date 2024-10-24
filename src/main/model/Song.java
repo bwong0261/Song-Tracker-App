@@ -44,7 +44,7 @@ public class Song {
     }
 
     // MODIFIES: this
-    // REQUIRES: 
+    // REQUIRES:
     // EFFECTS: Puts title, artist and instrument of song to JSONObject
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

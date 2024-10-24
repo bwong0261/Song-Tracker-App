@@ -24,7 +24,7 @@ public class JsonReader {
 
     public JSONObject read() throws IOException {
         String jsonData = readFile(source);
-        return new JSONObject(jsonData);  // Return the full JSON object containing all lists
+        return new JSONObject(jsonData); // Return the full JSON object containing all lists
     }
 
     // EFFECTS: reads SongsToLearn from file and returns it;
@@ -161,5 +161,4 @@ public class JsonReader {
         songsLearned.addSongToSongsLearned(song);
     }
 
-    
 }
