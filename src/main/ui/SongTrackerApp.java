@@ -305,8 +305,10 @@ public class SongTrackerApp {
     // EFFECTS: saves the workroom to file
     private void saveSongTracker() {
         try {
-            jsonWriter.open();
-            jsonWriter.write(songsToLearn);
+            jsonWriter.open(); 
+            jsonWriter.writeA(songsToLearn);
+            jsonWriter.writeB(songsLearning);
+            jsonWriter.writeC(songsLearned);
             jsonWriter.close();
             System.out.println("Saved " + "Song Tracker Status" + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
@@ -318,7 +320,9 @@ public class SongTrackerApp {
     // EFFECTS: loads workroom from file
     private void loadSongTracker() {
         try {
-            songsToLearn = jsonReader.read();
+            songsToLearn = jsonReader.readSongsToLearn();
+            songsLearning = jsonReader.readSongsLearning();
+            songsLearned = jsonReader.readSongsLearned();
             System.out.println("Loaded " + "Song Tracker Status" + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
