@@ -302,6 +302,8 @@ public class SongTrackerApp {
         jsonReader = new JsonReader(JSON_STORE);
     }
 
+    // Referenced from the JsonSerialization Demo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // EFFECTS: saves the workroom to file
     private void saveSongTracker() {
         try {
@@ -314,6 +316,8 @@ public class SongTrackerApp {
         }
     }
 
+    // Referenced from the JsonSerialization Demo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // MODIFIES: this
     // EFFECTS: loads workroom from file
     private void loadSongTracker() {

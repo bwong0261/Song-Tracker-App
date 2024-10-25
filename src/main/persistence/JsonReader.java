@@ -5,6 +5,7 @@ import model.SongsLearned;
 import model.SongsLearning;
 import model.SongsToLearn;
 
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -13,6 +14,8 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 // Represents a reader that reads workroom from JSON data stored in file
 public class JsonReader {
     private String source;
@@ -32,7 +35,8 @@ public class JsonReader {
     public SongsToLearn readSongsToLearn() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
-        return parseSongsToLearn(jsonObject);
+        JSONObject songsToLearnObject = jsonObject.getJSONObject("songsToLearn");
+        return parseSongsToLearn(songsToLearnObject);
     }
 
     // EFFECTS: reads SongsLearning from file and returns it;
@@ -40,7 +44,8 @@ public class JsonReader {
     public SongsLearning readSongsLearning() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
-        return parseSongsLearning(jsonObject);
+        JSONObject songsLearningObject = jsonObject.getJSONObject("songsLearning");
+        return parseSongsLearning(songsLearningObject);
     }
 
     // EFFECTS: reads SongsLearned from file and returns it;
@@ -48,7 +53,8 @@ public class JsonReader {
     public SongsLearned readSongsLearned() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
-        return parseSongsLearned(jsonObject);
+        JSONObject songsLearnedObject = jsonObject.getJSONObject("songsLearned");
+        return parseSongsLearned(songsLearnedObject);
     }
 
     // EFFECTS: reads source file as string and returns it
