@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -46,5 +47,17 @@ public class TestSong {
     @Test
     void testMakeFavourite() {
         assertTrue(testSong.makeFavourite());
+    }
+
+    @Test
+    void testToJson() {
+        Song song = new Song("Test Title", "Test Artist", "Guitar");
+        song.makeFavourite();
+
+        JSONObject json = song.toJson();
+        assertEquals("Test Title", json.getString("title"));
+        assertEquals("Test Artist", json.getString("artist"));
+        assertEquals("Guitar", json.getString("instrument"));
+        assertTrue(json.getBoolean("favourite"));
     }
 }

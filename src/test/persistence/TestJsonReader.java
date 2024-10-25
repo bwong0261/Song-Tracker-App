@@ -1,5 +1,6 @@
 package persistence;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import model.Song;
@@ -18,9 +19,7 @@ class TestJsonReader extends TestJson {
     void testReaderNonExistentFile() {
         JsonReader reader = new JsonReader("./data/noSuchFile.json");
         try {
-            SongsToLearn songsToLearn = reader.readSongsToLearn();
-            SongsLearning songsLearning = reader.readSongsLearning();
-            SongsLearned songsLearned = reader.readSongsLearned();
+            JSONObject jsonObject = reader.read(); // Read entire JSON object
             fail("IOException expected");
         } catch (IOException e) {
             // pass
@@ -31,15 +30,17 @@ class TestJsonReader extends TestJson {
     void testReaderEmptyWorkRoom() {
         JsonReader reader = new JsonReader("./data/testReaderEmptySongTracker.json");
         try {
-            SongsToLearn songsToLearn = reader.readSongsToLearn();
-            SongsLearning songsLearning = reader.readSongsLearning();
-            SongsLearned songsLearned = reader.readSongsLearned();
-            ArrayList<Song> toLearn = songsToLearn.getSongs();
-            ArrayList<Song> learning = songsLearning.getSongs();
-            ArrayList<Song> learned = songsLearned.getSongs();
-            assertEquals(0, toLearn.size());
-            assertEquals(0, learning.size());
-            assertEquals(0, learned.size());
+            // SongsToLearn songsToLearn = reader.readSongsToLearn();
+            // SongsLearning songsLearning = reader.readSongsLearning();
+            // SongsLearned songsLearned = reader.readSongsLearned();
+            // ArrayList<Song> toLearn = songsToLearn.getSongs();
+            // ArrayList<Song> learning = songsLearning.getSongs();
+            // ArrayList<Song> learned = songsLearned.getSongs();
+            // assertEquals(0, toLearn.size());
+            // assertEquals(0, learning.size());
+            // assertEquals(0, learned.size());
+            JSONObject jsonObject = reader.read();
+            assertTrue(jsonObject.isEmpty());
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
