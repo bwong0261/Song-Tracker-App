@@ -9,7 +9,6 @@ import model.SongsLearned;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +20,6 @@ class TestJsonWriter extends TestJson {
     @Test
     void testWriterInvalidFile() {
         try {
-            SongsToLearn songsToLearn = new SongsToLearn();
             JsonWriter writer = new JsonWriter("./data/my\\0illegal:/fileName.json");
             writer.open();
             fail("IOException was expected");
