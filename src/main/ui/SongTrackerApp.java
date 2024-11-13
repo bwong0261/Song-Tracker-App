@@ -12,13 +12,17 @@ import model.SongsLearning;
 import model.SongsToLearn;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // Represents a SongTrackerApp which has the fields songsToLearn,
 // songsLearning, songsLearned and Scanner to track input, contains
 // all of the lists and allows for them to be viewed, and add or remove
 // song from each list. Also declares the jsonWriter and jsonReader fields
 // to allow for the saving and loading of our application states.
-public class SongTrackerApp {
+public class SongTrackerApp extends JFrame{
     private static final String JSON_STORE = "./data/songtracker.json";
     private SongsToLearn songsToLearn;
     private SongsLearning songsLearning;
@@ -41,6 +45,7 @@ public class SongTrackerApp {
         String command = null;
 
         initialize();
+        setupGUI();
 
         while (going) {
             showDisplay();
@@ -331,4 +336,41 @@ public class SongTrackerApp {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
+
+        private void setupGUI() {
+        setTitle("Song Tracker");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBackground(Color.WHITE);
+
+        // Set a white content pane
+        JPanel contentPane = new JPanel();
+        contentPane.setBackground(Color.WHITE);
+        setContentPane(contentPane);
+        contentPane.setLayout(new GridLayout(6, 1, 10, 10));
+
+        JButton viewSongsToLearnButton = new JButton("View Songs to Learn");
+        JButton viewSongsLearningButton = new JButton("View Songs Learning");
+        JButton viewSongsLearnedButton = new JButton("View Songs Learned");
+        JButton saveButton = new JButton("Save");
+        JButton loadButton = new JButton("Load");
+        JButton quitButton = new JButton("Quit");
+
+        viewSongsToLearnButton.addActionListener(e -> viewSongsToLearn());
+        viewSongsLearningButton.addActionListener(e -> viewSongsLearning());
+        viewSongsLearnedButton.addActionListener(e -> viewSongsLearned());
+        saveButton.addActionListener(e -> saveSongTracker());
+        loadButton.addActionListener(e -> loadSongTracker());
+        quitButton.addActionListener(e -> System.exit(0));
+
+        contentPane.add(viewSongsToLearnButton);
+        contentPane.add(viewSongsLearningButton);
+        contentPane.add(viewSongsLearnedButton);
+        contentPane.add(saveButton);
+        contentPane.add(loadButton);
+        contentPane.add(quitButton);
+
+        setVisible(true);
+    }
+
 }
