@@ -110,4 +110,26 @@ public class SongsToLearnWindow extends JFrame {
             }
         }
     }
+
+    // MODIFIES: this
+    // EFFECTS: Method to remove a song from the list
+    private void removeSong() {
+        String titleToRemove = JOptionPane.showInputDialog(this, "Enter the title of the song to remove:");
+        if (titleToRemove != null && !titleToRemove.isEmpty()) {
+            Song songToRemove = null;
+            for (Song song : songsToLearn.getSongs()) {
+                if (song.getTitle().equalsIgnoreCase(titleToRemove)) {
+                    songToRemove = song;
+                    break;
+                }
+            }
+
+            if (songToRemove != null) {
+                songsToLearn.removeSongToSongsToLearn(songToRemove);
+                refreshSongsList(); // Refresh the list after removing
+            } else {
+                JOptionPane.showMessageDialog(this, "Song not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
 }
