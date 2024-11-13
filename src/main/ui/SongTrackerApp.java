@@ -372,7 +372,7 @@ public class SongTrackerApp extends JFrame{
         contentPane.add(saveButton);
         contentPane.add(loadButton);
         contentPane.add(quitButton);
-
+        
         setVisible(true);
     }
 
