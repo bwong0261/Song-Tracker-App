@@ -82,6 +82,8 @@ public class SongsToLearnWindow extends JFrame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: Adds a new song to the list
     private void addSong() {
         JTextField titleField = new JTextField();
         JTextField artistField = new JTextField();
