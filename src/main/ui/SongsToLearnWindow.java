@@ -17,8 +17,7 @@ public class SongsToLearnWindow extends JFrame {
     
         // MODIFIES: this
         // EFFECTS: Creates a SongsToLearnWindow that initializes all of the layouts,
-        // title
-        // and size for all of the buttons & songs in SongsToLearnWindow
+        // title and size for all of the buttons & songs in SongsToLearnWindow
         public SongsToLearnWindow(SongsToLearn songsToLearn, SongsLearning songsLearning) {
             this.songsToLearn = songsToLearn;
             this.songsLearning = songsLearning;
