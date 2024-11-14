@@ -14,8 +14,7 @@ import persistence.JsonReader;
 import persistence.JsonWriter;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 // Represents a SongTrackerApp which has the fields songsToLearn,
 // songsLearning, songsLearned and Scanner to track input, contains
@@ -360,7 +359,7 @@ public class SongTrackerApp extends JFrame{
         JButton quitButton = new JButton("Quit");
 
         viewSongsToLearnButton.addActionListener(e -> new SongsToLearnWindow(songsToLearn, songsLearning));
-        viewSongsLearningButton.addActionListener(e -> viewSongsLearning());
+        viewSongsLearningButton.addActionListener(e -> new SongsLearningWindow(songsLearning, songsLearned));
         viewSongsLearnedButton.addActionListener(e -> viewSongsLearned());
         saveButton.addActionListener(e -> saveSongTracker());
         loadButton.addActionListener(e -> loadSongTracker());
