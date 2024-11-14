@@ -1,20 +1,10 @@
 {
-    "songsLearned": {"songs": [{
-        "artist": "a",
-        "instrument": "a",
-        "title": "a",
-        "favourite": false
-    }]},
+    "songsLearned": {"songs": []},
     "songsToLearn": {"songs": [{
-        "artist": "c",
-        "instrument": "c",
-        "title": "c",
+        "artist": "sdsd",
+        "instrument": "sdsd",
+        "title": "asds",
         "favourite": false
     }]},
-    "songsLearning": {"songs": [{
-        "artist": "b",
-        "instrument": "b",
-        "title": "b",
-        "favourite": false
-    }]}
+    "songsLearning": {"songs": []}
 }
