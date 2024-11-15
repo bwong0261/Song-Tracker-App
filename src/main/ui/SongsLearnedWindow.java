@@ -20,7 +20,7 @@ public class SongsLearnedWindow extends JFrame {
     public SongsLearnedWindow(SongsLearned songsLearned) {
         this.songsLearned = songsLearned;
 
-        setupFrame();
+        configureFrame();
 
         setLayout(new BorderLayout());
 
@@ -104,6 +104,13 @@ public class SongsLearnedWindow extends JFrame {
                 songTitles,
                 songTitles[0]);
 
+        chooseTitle(chosenTitle);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Helper method to reduce line length. Handles choosing title input
+    // and prints popup for when option has been chosen.
+    private void chooseTitle(String chosenTitle) {
         if (chosenTitle != null) {
             Song chosenSong = null;
             for (Song song : songsLearned.getSongs()) {
