@@ -12,6 +12,7 @@ import java.awt.*;
 public class SongsLearnedWindow extends JFrame {
     private JTextArea songsTextArea;
     private SongsLearned songsLearned;
+    private JLabel starLabel;
 
     // MODIFIES: this
     // EFFECTS: Creates a SongsLearningWindow that initializes all of the layouts,
@@ -19,7 +20,7 @@ public class SongsLearnedWindow extends JFrame {
     public SongsLearnedWindow(SongsLearned songsLearned) {
         this.songsLearned = songsLearned;
 
-        setTitle("Current Songs Learning");
+        setTitle("Songs Finished ");
         setSize(600, 600);
         setLocationRelativeTo(null); // Centers the window
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Only closes this window
@@ -47,6 +48,13 @@ public class SongsLearnedWindow extends JFrame {
         // // Action listener for the Finish button
         finishButton.addActionListener(e -> favouriteSong());
 
+        starLabel = new JLabel("★");
+        starLabel.setFont(new Font("SansSerif", Font.BOLD, 200));
+        starLabel.setForeground(Color.YELLOW);
+        starLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        starLabel.setVisible(false);
+        add(starLabel, BorderLayout.NORTH); // Add to the center of the window
+
         setVisible(true);
     }
 
@@ -54,11 +62,11 @@ public class SongsLearnedWindow extends JFrame {
     // EFFECTS: Refreshes the text area with the current list of songs
     private void refreshSongsList() {
         if (songsLearned.getSongs().isEmpty()) {
-            songsTextArea.setText("You have no songs on your learn list.");
+            songsTextArea.setText("You have no songs finished learning.");
         } else {
             StringBuilder songsList = new StringBuilder();
             for (Song song : songsLearned.getSongs()) {
-                if(song.isFavourite()){
+                if (song.isFavourite()) {
                     songsList.append("Favourited\n");
                 }
                 songsList.append("Title: ").append(song.getTitle())
@@ -102,9 +110,18 @@ public class SongsLearnedWindow extends JFrame {
             if (chosenSong != null) {
                 chosenSong.makeFavourite();
                 refreshSongsList();
-                JOptionPane.showMessageDialog(this, "The song \"" + chosenTitle + "\" has been favourited.",
-                        "Song Chosen", JOptionPane.INFORMATION_MESSAGE);
+                showStarEffect();
             }
         }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Displays the star label for 2 seconds and then hides it
+    private void showStarEffect() {
+        starLabel.setVisible(true); // Make the star label visible
+
+        Timer timer = new Timer(2000, e -> starLabel.setVisible(false)); // Hide star after 2 seconds
+        timer.setRepeats(false); // Ensure it only runs once
+        timer.start();
     }
 }
