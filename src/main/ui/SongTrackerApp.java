@@ -345,7 +345,6 @@ public class SongTrackerApp extends JFrame {
     private void setupGUI() {
         configureFrame();
         contentPane();
-
         setVisible(true);
     }
 
