@@ -40,6 +40,7 @@ public class Song {
     }
 
     public Boolean makeFavourite() {
+        EventLog.getInstance().logEvent(new Event("Favourite song:" + this.title));
         return favourite = true;
     }
 
