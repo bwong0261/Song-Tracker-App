@@ -66,3 +66,7 @@ Tue Nov 26 21:27:19 PST 2024
 Finished learning song:Valentine
 Tue Nov 26 21:27:24 PST 2024
 Favourite song:Valentine
+
+### Phase 4: Task 2 ###
+
+- Upon reflecting on my project I could greatly reduce the duplication in my code by creating an abstract class called SongsList that has all of the relevant and common methods in SongsToLearn, SongsLearning and SongsLearned. Then I would have all of these classes extend this SongsList class in order to inherit all of the defined concrete methods in this class that are the same between them all. I would also do the same for the GUI and creat a SongsListWindow abstract class that would have defined concrete methods that are shared between the three classes of SongsToLearnWindow, SongsLearningWindow and SongsLearnedWindow. These three classes would then extend the abstract class to inherit the methods but they would still implement their own class specific methods.
