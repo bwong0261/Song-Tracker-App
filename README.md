@@ -39,3 +39,30 @@ This project is of interest to me because I personally play guitar and am contin
 - You can save the state of my application by clicking on the save button in the main menu.
 
 - You can reload the state of my application by clicking on the load button in the main menu.
+
+### Phase 4: Task 2 ###
+
+Tue Nov 26 21:26:36 PST 2024
+Added new song to learn:asd
+Tue Nov 26 21:26:45 PST 2024
+Removed song to learn:asd
+Tue Nov 26 21:26:55 PST 2024
+Added new song to learn:Get You
+Tue Nov 26 21:26:57 PST 2024
+Removed song to learn:Get You
+Tue Nov 26 21:26:57 PST 2024
+Started learning song:Get You
+Tue Nov 26 21:27:03 PST 2024
+Stopped learning song:Get You
+Tue Nov 26 21:27:14 PST 2024
+Added new song to learn:Valentine
+Tue Nov 26 21:27:15 PST 2024
+Removed song to learn:Valentine
+Tue Nov 26 21:27:15 PST 2024
+Started learning song:Valentine
+Tue Nov 26 21:27:19 PST 2024
+Stopped learning song:Valentine
+Tue Nov 26 21:27:19 PST 2024
+Finished learning song:Valentine
+Tue Nov 26 21:27:24 PST 2024
+Favourite song:Valentine
